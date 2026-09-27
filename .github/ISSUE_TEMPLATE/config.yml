@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Status page
+    url: https://things-agent-cloud.tobiaspoertner.com/status
+    about: See whether everything works right now and which known issues are open.

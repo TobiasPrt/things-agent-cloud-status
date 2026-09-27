@@ -1,0 +1,72 @@
+name: Report a problem
+description: Tell us about something in Things Agent Cloud that doesn't work.
+title: "Problem: "
+labels: ["report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. First, check the [status page](https://things-agent-cloud.tobiaspoertner.com/status): if the problem is already listed, subscribe to that issue instead.
+
+        **This page is public.** Please don't post email addresses, passwords, history keys, or the names or content of your tasks, projects or areas. We never need them to look into a problem. If we need to reach you, we'll ask you to email [things-agent-cloud@tobiaspoertner.com](mailto:things-agent-cloud@tobiaspoertner.com).
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Which app were you using?
+      options:
+        - Claude (web, desktop or mobile)
+        - Claude Code
+        - ChatGPT
+        - Cursor
+        - Something else
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What were you doing?
+      options:
+        - Signing in or connecting
+        - Reading my tasks
+        - Changing my tasks
+        - Waiting for my tasks to load the first time
+        - Paying or managing my plan
+        - Something else
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you ask your assistant, what did you expect, and what happened instead? Describe tasks in general terms ("a to-do with a checklist") rather than pasting them. Error messages are welcome, minus any email address.
+    validations:
+      required: true
+
+  - type: input
+    id: when
+    attributes:
+      label: When did it happen?
+      description: Roughly is fine. Please include your time zone.
+      placeholder: Today around 14:30 CEST
+    validations:
+      required: true
+
+  - type: input
+    id: trace-id
+    attributes:
+      label: x-railway-trace-id (optional)
+      description: If you can see response headers (for example in your browser's developer tools), the `x-railway-trace-id` header of a failed request helps us find it quickly. Leave this empty if you don't have it.
+      placeholder: 4bf92f3577b34da6a3ce929d0e0e4736
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before you send it
+      options:
+        - label: My report contains no email addresses, passwords or task content.
+          required: true
